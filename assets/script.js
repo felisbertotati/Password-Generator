@@ -121,12 +121,13 @@ function generatePassword() {
   if (lenght === null) {
     return;
   }
-
+  // here we will take the first question on the first function  (getPasswordOptions),
+  // how users would like their password
   var lowercase = getPasswordOptions(" lowercase letters");
   var uppercase = getPasswordOptions(" uppercase letters");
   var numbers = getPasswordOptions(" numbers");
   var special = getPasswordOptions(" special characers");
-
+  //if they didn't press any it will return to the beginning
   if (!lowercase && !uppercase && !numbers && !special) {
     alert("You must choose an option");
     return;
