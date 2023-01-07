@@ -90,20 +90,57 @@ var upperCasedCharacters = [
 
 // In this variable I added all the letters, numbers ans characters together.
 
-var passwordChoise = specialCharacters.concat(
+var PasswordOptions = specialCharacters.concat(
   numericCharacters,
   lowerCasedCharacters,
   upperCasedCharacters
 );
 
 // Function to prompt user for password options
-function getPasswordOptions() {}
+function getPasswordOptions(YourChoice) {
+  var awnser = window.prompt("Would you like to include" + YourChoice + "?");
+}
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr) {
+  getPasswordOptions();
+}
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  //we will add a prompt to know the size of the password the user wants
+  var lenght = window.prompt("Choose between 10 and 64 characters...");
+  // if user write nothing, user should have an alert that must write a number
+  if (isNaN(lenght)) {
+    alert("You must insert a number");
+    // size of our password should be between 10 and 64
+  } else if (lenght < 10 || lenght > 64) {
+    window.prompt("Your password should have between 10 and 64 characters");
+  }
+  // if user doesn't write anything it will be voided
+  if (lenght === null) {
+    return;
+  }
+
+  var lowercase = getPasswordOptions(" lowercase letters");
+  var uppercase = getPasswordOptions(" uppercase letters");
+  var numbers = getPasswordOptions(" numbers");
+  var special = getPasswordOptions(" special characers");
+
+  if (!lowercase && !uppercase && !numbers && !special) {
+    alert("You must choose an option");
+    return;
+  }
+
+  var password = "";
+  for (i = 0; i < length; i++) {
+    password += PasswordOptions(
+      Math.floor(Math.random() * PasswordOptions.length)
+    );
+  }
+  console.log(password);
+  return password;
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
