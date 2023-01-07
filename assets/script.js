@@ -98,7 +98,7 @@ var PasswordOptions = specialCharacters.concat(
 
 // Function to prompt user for password options
 function getPasswordOptions(YourChoice) {
-  var awnser = window.prompt("Would you like to include" + YourChoice + "?");
+  var awnser = confirm("Would you like to include" + YourChoice + "?");
 }
 
 // Function for getting a random element from an array
@@ -121,8 +121,7 @@ function generatePassword() {
   if (lenght === null) {
     return;
   }
-  // here we will take the first question on the first function  (getPasswordOptions),
-  // how users would like their password
+  // user choose password characteristics.
   var lowercase = getPasswordOptions(" lowercase letters");
   var uppercase = getPasswordOptions(" uppercase letters");
   var numbers = getPasswordOptions(" numbers");
