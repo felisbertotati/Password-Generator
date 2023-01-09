@@ -107,17 +107,17 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   //we will add a prompt to know the size of the password the user wants
-  var lenght = window.prompt("Choose between 10 and 64 characters...");
+  var length = window.prompt("Choose between 10 and 64 characters...");
   // if user write nothing, user should have an alert that must write a number
   if (isNaN(length)) {
     alert("You must insert a number");
     // size of our password should be between 10 and 64
-  } else if (lenght < 10 || lenght > 64) {
+  } else if (length < 10 || length > 64) {
     window.prompt("Your password should have between 10 and 64 characters");
   }
 
   // if user doesn't write anything it will be voided
-  if (lenght === null) {
+  if (length === null) {
     return;
   }
   // user choose password characteristics.
@@ -139,11 +139,11 @@ function generatePassword() {
   var password = "";
 
   //for loop to iterate through each of the users options
-  for (var i = 0; i < lenght; ) {
+  for (var i = 0; i < length; ) {
     //if the user has selected lowercase letters
     if (lowercase) {
       //if i is bigger or equal to length return
-      if (i >= lenght) {
+      if (i >= length) {
         return password;
         //if not add a random lowercasedcharacter and increase i
       } else {
@@ -154,7 +154,7 @@ function generatePassword() {
     //if the user has selected uppercase letters
     if (uppercase) {
       //if i is bigger or equal to length return
-      if (i >= lenght) {
+      if (i >= length) {
         return password;
         //if not add a random uppercasedcharacter and increase i
       } else {
@@ -165,7 +165,7 @@ function generatePassword() {
     //if the user has selected numbers
     if (numbers) {
       //if i is bigger or equal to length return
-      if (i >= lenght) {
+      if (i >= length) {
         return password;
         //if not add a random uppercasedcharacter and increase i
       } else {
@@ -177,7 +177,7 @@ function generatePassword() {
     //if the user has selected special characters
     if (special) {
       // if i is bigger or equal to length return
-      if (i >= lenght) {
+      if (i >= length) {
         return password;
         //if not add a random special character and increase i
       } else {
