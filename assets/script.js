@@ -98,13 +98,16 @@ var PasswordOptions = specialCharacters.concat(
 
 // Function to prompt user for password options
 function getPasswordOptions(YourChoice) {
-  var awnser = confirm("Would you like to include" + YourChoice + "?");
+  var answer = confirm("Would you like to include" + YourChoice + "?");
+  if (answer == true) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-  getPasswordOptions();
-}
+function getRandom(arr) {}
 
 // Function to generate password with user input
 function generatePassword() {
@@ -127,19 +130,23 @@ function generatePassword() {
   var numbers = getPasswordOptions(" numbers");
   var special = getPasswordOptions(" special characers");
   //if they didn't press any it will return to the beginning
-  if (!lowercase && !uppercase && !numbers && !special) {
+  while (!lowercase && !uppercase && !numbers && !special) {
     alert("You must choose an option");
-    return;
+    //return;
+    lowercase = getPasswordOptions(" lowercase letters");
+    uppercase = getPasswordOptions(" uppercase letters");
+    numbers = getPasswordOptions(" numbers");
+    special = getPasswordOptions(" special characers");
   }
 
-  var password = "";
-  for (i = 0; i < length; i++) {
-    password += PasswordOptions(
-      Math.floor(Math.random() * PasswordOptions.length)
-    );
-  }
-  console.log(password);
-  return password;
+  // var password = "";
+  // for (i = 0; i < length; i++) {
+  //   password += PasswordOptions(
+  //     Math.floor(Math.random() * PasswordOptions.length)
+  //   );
+  // }
+  // console.log(password);
+  // return password;
 }
 
 // Get references to the #generate element
