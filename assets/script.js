@@ -101,7 +101,6 @@ function getPasswordOptions(YourChoice) {
 // Function for getting a random element from an array
 function getRandom(arr) {
   var options = arr[Math.floor(Math.random() * arr.length)];
-  console.log(options);
   return options;
 }
 
@@ -116,6 +115,7 @@ function generatePassword() {
   } else if (lenght < 10 || lenght > 64) {
     window.prompt("Your password should have between 10 and 64 characters");
   }
+
   // if user doesn't write anything it will be voided
   if (lenght === null) {
     return;
@@ -137,27 +137,55 @@ function generatePassword() {
   }
   //password string
   var password = "";
-  //added lower case charecters in the password array
-  if (lowercase) {
-    password += getRandom(lowerCasedCharacters);
-    //console.log(password);
-  }
-  // added upper case characters in the password array
-  if (uppercase) {
-    password += getRandom(upperCasedCharacters);
-    //console.log(password);
-  }
-  //added numbers characters in the password array
-  if (numbers) {
-    password += getRandom(numericCharacters);
-    // console.log(password);
-  }
-  //added spcial characters in the password array
-  if (special) {
-    password += getRandom(specialCharacters);
-    // console.log(password);
-  }
 
+  //for loop to iterate through each of the users options
+  for (var i = 0; i < lenght; ) {
+    //if the user has selected lowercase letters
+    if (lowercase) {
+      //if i is bigger or equal to length return
+      if (i >= lenght) {
+        return password;
+        //if not add a random lowercasedcharacter and increase i
+      } else {
+        password += getRandom(lowerCasedCharacters);
+        i++;
+      }
+    }
+    //if the user has selected uppercase letters
+    if (uppercase) {
+      //if i is bigger or equal to length return
+      if (i >= lenght) {
+        return password;
+        //if not add a random uppercasedcharacter and increase i
+      } else {
+        password += getRandom(upperCasedCharacters);
+        i++;
+      }
+    }
+    //if the user has selected numbers
+    if (numbers) {
+      //if i is bigger or equal to length return
+      if (i >= lenght) {
+        return password;
+        //if not add a random uppercasedcharacter and increase i
+      } else {
+        password += getRandom(numericCharacters);
+        i++;
+      }
+      // console.log(password);
+    }
+    //if the user has selected special characters
+    if (special) {
+      // if i is bigger or equal to length return
+      if (i >= lenght) {
+        return password;
+        //if not add a random special character and increase i
+      } else {
+        password += getRandom(specialCharacters);
+        i++;
+      }
+    }
+  }
   return password;
 }
 
