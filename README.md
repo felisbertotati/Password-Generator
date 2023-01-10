@@ -13,3 +13,5 @@ Base on that I have to follow up the following instructions:
 * When all prompts are answered, the password should be generated and displayed in an alert or written to the page.
 
 ## Preview
+
+ ![alt text](https://github.com/felisbertotati/Password-Generator/blob/main/images/passwordgeneratorscreenshot.png?raw=true)
